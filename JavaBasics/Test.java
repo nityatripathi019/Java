@@ -107,14 +107,28 @@ public class Test {
     System.out.println("binary of " + originalnum + "=  " + binNum);
   }
 
+  public static void oddEven(int n) {
+    int result = n & 1;
+    if (result == 1) {
+      System.out.println("no is odd");
+    } else {
+      System.out.println("no is even");
+    }
+  }
+
   public static void main(String args[]) {
-    System.out.println(binomialCoeff(10, 03));
-    System.out.println(multiply(5, 10));
-    System.out.println(multiply(2.54, 3.42));
-    System.out.println(multiply(3, 5, 6));
-    System.out.println("prime no in the given range are");
-    PrimeRange(20, 40);
-    BinaryToDecimal(1111011101);
-    decToBin(123);
+    // System.out.println(binomialCoeff(10, 03));
+    // System.out.println(multiply(5, 10));
+    // System.out.println(multiply(2.54, 3.42));
+    // System.out.println(multiply(3, 5, 6));
+    // System.out.println("prime no in the given range are");
+    // PrimeRange(20, 40);
+    // BinaryToDecimal(1111011101);
+    // decToBin(123);
+    System.out.println((5 & 6));
+    System.out.println(5 | 6);
+    oddEven(228);
   }
 }
+
+// Bitwise op
