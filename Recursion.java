@@ -1,3 +1,4 @@
+import java.util.LinkedHashSet;
 
 class Recursion {
 
@@ -18,7 +19,8 @@ class Recursion {
     return totalways;
   }
 
-  public static void removeDuplicateTiles(String str, int idx, StringBuilder newStr, boolean map[]) {
+  // remove duplicate value from string using recursion
+  public static void removeDuplicate(String str, int idx, StringBuilder newStr, boolean map[]) {
     if (idx == str.length()) {
       System.out.println(newStr);
       return;
@@ -28,16 +30,34 @@ class Recursion {
     char currChar = str.charAt(idx);
     if (map[currChar - 'a'] == true) {
       // it means duplocate
-      removeDuplicateTiles(str, idx + 1, newStr, map);
+      removeDuplicate(str, idx + 1, newStr, map);
     } else {
       map[currChar - 'a'] = true;
-      removeDuplicateTiles(str, idx + 1, newStr.append(currChar), map);
+      removeDuplicate(str, idx + 1, newStr.append(currChar), map);
     }
   }
 
+  // removing duplicate values from string using linkedhashset why i used
+  // linkedhashset as linkedhashset retirns values in order also dont store
+  // duplicate values so betterapproach for removing dupliacte value
+  public static void removeDuplicateValue(String str) {
+
+    LinkedHashSet<Character> hs = new LinkedHashSet<>();
+    for (int i = 0; i < str.length(); i++) {
+      hs.add(str.charAt(i));
+    }
+    StringBuilder newStr = new StringBuilder();
+    for (char s : hs) {
+      newStr.append(s);
+    }
+
+    System.out.println(newStr);
+  }
+
   public static void main(String args[]) {
-    String str = "apnacollegeee";
-    removeDuplicateTiles(str, 0, new StringBuilder(""), new boolean[26]);
+    String str = "apnacollegeee!@!#!#";
+    // removeDuplicateTiles(str, 0, new StringBuilder(""), new boolean[26]);
+    removeDuplicateValue(str);
   }
 
 }
