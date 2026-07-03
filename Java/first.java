@@ -92,6 +92,7 @@ class first {
     int marks = sc.nextInt();
     String result = marks >= 33 ? "PASS" : "FAIL";
     System.out.println(result);
+    sc.close();
 
   }
 }
