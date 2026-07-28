@@ -84,6 +84,21 @@ public class Practice {
     System.out.println(count);
   }
 
+  public static String tickets(HashMap<String, String> from) {
+
+    HashMap<String, String> to = new HashMap<>();
+
+    for (String keys : from.keySet()) {
+      to.put(from.get(keys), keys);
+    }
+    for (String key : from.keySet()) {
+      if (!to.containsKey(key))
+        return key;
+    }
+
+    return "";
+  }
+
   public static void main(String[] args) {
     // String s = "bulb";
     // String t = "tulb";
@@ -94,18 +109,24 @@ public class Practice {
 
     // HashSet => unique ,unordred,null values allowed
 
-    // HashSet<Integer> set = new HashSet<>();
-    // set.add(1);
-    // set.add(3);
-    // set.add(2);
-    // set.add(5);
-    // System.out.println(set);
     // int nums[] = { 4, 3, 2, 5, 6, 7, 3, 4, 2, 1 };
     // System.out.println(countDistinct(nums));
 
-    int num1[] = { 7, 3, 9 };
-    int num2[] = { 6, 3, 9, 2, 9, 4 };
-    unionandIntersection(num1, num2);
+    // int num1[] = { 7, 3, 9 };
+    // int num2[] = { 6, 3, 9, 2, 9, 4 };
+    // unionandIntersection(num1, num2);
 
+    // find itenary from tickets
+    HashMap<String, String> from = new HashMap<>();
+    from.put("Chennai", "Bengaluru");
+    from.put("Mumbai", "Delhi");
+    from.put("Goa", "Chennai");
+    from.put("Delhi", "Goa");
+    String start = tickets(from);
+    System.out.print(start);
+    for (String key : from.keySet()) {
+      System.out.print("=>" + from.get(start));
+      start = from.get(start);
+    }
   }
 }
